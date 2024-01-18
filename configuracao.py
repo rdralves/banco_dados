@@ -1,8 +1,17 @@
 import sqlite3, os
 
-os.system('cls')
+def con():
+    os.system('cls')
 
-conexao = sqlite3.connect('agenda.db')
-print(conexao)
-cursor = conexao.cursor()
-cursor.execute('CREATE TABLE IF NOT EXISTS agenda (id INTEGER PRIMARY KEY, nome TEXT, telefone TEXT)')
+    conexao = sqlite3.connect('agenda.db')
+    if conexao == True:
+        print('Conectado')
+        
+    cursor = conexao.cursor()
+
+    return conexao
+
+if __name__== '__main__':
+
+    c = con()
+
